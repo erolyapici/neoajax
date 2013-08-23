@@ -12,6 +12,10 @@ class NeoAjax {
     public $a = array();
     public $reload = '';
 
+    public function getParam($key){
+        $val = isset($_POST[$key]) ? $_POST[$key] : FALSE;
+        return $val;
+    }
     /**
      * @param $str
      * @return string
