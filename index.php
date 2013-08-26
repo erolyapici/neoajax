@@ -1,45 +1,32 @@
-<?php
-/**
- * Created by JetBrains PhpStorm.
- * User: eyapici
- * Date: 23.08.2013
- * Time: 11:41
- * To change this template use File | Settings | File Templates.
- */
-$islem = isset($_GET['islem']) ? $_GET['islem'] : '';
-require_once 'neoAjax.php';
-if($islem == 'hello'){
-    $neoAjax = new neoAjax();
-    $neoAjax->alert("Hello Word");
-    $neoAjax->html('#helloword','Hello Word');
-    $neoAjax->run();
-}elseif($islem == 'form'){
-    $neoAjax = new neoAjax();
-    $name       = $neoAjax->getParam('name');
-    $password   = $neoAjax->getParam('password');
-    $text       = $neoAjax->getParam('text');
-    $checkbox   = $neoAjax->getParam('checkbox');
-    $radio      = $neoAjax->getParam('radio');
-
-    $neoAjax->html('#nameValue',$neoAjax->strip($name));
-    $neoAjax->html('#passwordValue',$neoAjax->strip($password));
-    $neoAjax->html('#textValue',$neoAjax->strip($text));
-    $neoAjax->html('#checkboxValue',$neoAjax->strip($checkbox));
-    $neoAjax->html('#radioValue',$neoAjax->strip($radio));
-    $neoAjax->run();
-}
-?>
 <html>
 <head>
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="neoAjax.js"></script>
+    <style type="text/css">
+        #loadingMsg {
+            text-align: center;
+            position: fixed;
+            z-index: 9999;
+            top: 40%;
+            left: 45%;
+            height: 100px;
+            width: 210px;
+            background: #FFF;
+        }
+        .loadingimg {
+            background: url(loading.gif) no-repeat;
+            padding: 5px;
+            height: 30px;
+            width: 30px;
+            float: left;
+            margin: 10px;
+    </style>
 </head>
 <body>
 <fieldset>
     <legend></legend>
-    <a href="#" onclick="neoajax('index.php?islem=hello',{ });">Alert Hello Word</a>
+    <a href="#" onclick="neoajax('ajax.php?islem=hello',{ });">Alert Hello Word</a>
     <div id="helloword">
-
     </div>
 </fieldset>
 <fieldset>
@@ -58,9 +45,11 @@ if($islem == 'hello'){
         <input type="radio" id="radio" name="radio" value="Yes">
         <input type="radio" id="radio" name="radio" value="No"><span id="radioValue"></span>
         <br/>
-        <a href="#" onclick="neoajax('index.php?islem=form',getFormValues('form'));">Sent</a>
+        <a href="#" onclick="neoajax('ajax.php?islem=form',getFormValues('form'));">Sent</a>
     </form>
 </fieldset>
-
+<div id="loadingMsg" style="display: none;">
+    <div class="loadingimg"></div>
+</div>
 </body>
 </html>
