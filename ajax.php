@@ -9,11 +9,11 @@
 $islem = isset($_GET['islem']) ? $_GET['islem'] : '';
 require_once 'neoAjax.php';
 if($islem == 'hello'){
-    $neoAjax = new neoAjax();
-    $neoAjax->alert("Hello Word");
-    $neoAjax->html('#helloword','Hello Word');
-    sleep(10);
-    $neoAjax->run();
+        $neoAjax = new neoAjax();
+        $neoAjax->alert("Hello Word");
+        $neoAjax->html('#helloword','Hello Word');
+        sleep(10);
+        $neoAjax->run();
 }elseif($islem == 'form'){
     $neoAjax = new neoAjax();
     $name       = $neoAjax->getParam('name');

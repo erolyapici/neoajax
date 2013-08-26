@@ -8,6 +8,7 @@ function neoAjax__R(forceGet){ location.reload(forceGet); }
 function neoajax(url,data){
     $.ajax({
         type        :'POST',
+        async       : true,
         url         : url,
         dataType    : 'JSON',
         data        : data,

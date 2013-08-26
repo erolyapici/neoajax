@@ -9,8 +9,8 @@
             z-index: 9999;
             top: 40%;
             left: 45%;
-            height: 100px;
-            width: 210px;
+            height: 50px;
+            width: 50px;
             background: #FFF;
         }
         .loadingimg {
