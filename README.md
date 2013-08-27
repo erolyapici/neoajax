@@ -20,6 +20,6 @@ $neoAjax->run();
 
 Frontend
 HTML
-  '<a href="#" onclick="neoajax('ajax.php?islem=hello',{ });">Alert Hello Word</a>'
+  < a href="#" onclick="neoajax('ajax.php?islem=hello',{ });">Alert Hello Word</a >
   <div id="helloword">
   </div>
