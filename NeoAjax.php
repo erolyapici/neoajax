@@ -57,7 +57,14 @@ class NeoAjax {
     public function html($selector, $html){
         $this->js.="$('$selector').html('$html');";
     }
-
+    /**
+     * Jquery assignVal function
+     * @param $selector
+     * @param $html
+     */
+    public function assignVal($selector, $html){
+        $this->js.="$('$selector').val('$html');";
+    }
     /**
      *
      * @param $selector
@@ -66,9 +73,17 @@ class NeoAjax {
         $this->js.="$('$selector').modal('show');";
     }
     /**
+     *
+     * @param $selector
+     */
+    public function  hideModal($selector){
+        $this->js.="$('$selector').modal('hide').html('');";
+    }
+    /**
      * Run script
      */
     public function run(){
+        header('Content-Type: application/json');
         exit(json_encode(array('s'=>$this->js,'a'=>$this->a,'r'=>$this->reload)));
     }
 
